@@ -31,8 +31,10 @@ The command `go mod tidy` adds used or removes unused module dependencies and up
 The command `go mod init example.com/greetings` initializes a new module by creating a `go.mod` file.
 If the module should be published, the path _must_ match the path from which it can be downloaded.
 
-The command `go mod edit -replace example.com/greetings=../grettings` can be used to redirect Go tools to a specific location.
+The command `go mod edit -replace example.com/greetings=../greetings` can be used to redirect Go tools to a specific location.
 This can be used for developing modules locally that reference each other.
+
+The command `go get golang.org/x/example/hello/reverse` downloads a dependency and adds it to the `go.mod` and `go.sum` files.
 
 The command `go test -v` executes tests with verbose output.
 
@@ -40,6 +42,10 @@ The command `go build` compiles the packages, along with their dependencies, but
 The resulting file / executable can be run from the console.
 
 The command `go install` compiles and installs the packages.
+
+The command `go work init ./hello` creates a workspace file `go.work` that specifies the modules contained in the workspace.
+It can be used instead of the `-replace` flow for the command `go mod edit`.
+Add new modules to the workspace using `go work use ./example/hello`.
 
 ## Language Specific
 
