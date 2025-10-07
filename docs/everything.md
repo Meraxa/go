@@ -1,4 +1,11 @@
 
+## Helpful Resources
+
+The repository [awesome-go](https://github.com/avelino/awesome-go) provides a list of go libraries for various use cases.
+
+The package [github.com/go-playground/validator/v10](https://pkg.go.dev/github.com/go-playground/validator/v10) provides struct validation that goes well for API.
+
+
 ## Dependency Tracking
 
 To enable dependency tracking for your code by creating a `go.mod` file, run the `go mod init` command, giving it the name of the module your code will be in.
@@ -35,6 +42,7 @@ The command `go mod edit -replace example.com/greetings=../greetings` can be use
 This can be used for developing modules locally that reference each other.
 
 The command `go get golang.org/x/example/hello/reverse` downloads a dependency and adds it to the `go.mod` and `go.sum` files.
+If a dependency is listed in the `import` section of a `.go` file, it will be downloaded by running `go get .` automatically.
 
 The command `go test -v` executes tests with verbose output.
 
