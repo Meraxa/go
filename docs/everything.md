@@ -5,6 +5,12 @@ The repository [awesome-go](https://github.com/avelino/awesome-go) provides a li
 
 The package [github.com/go-playground/validator/v10](https://pkg.go.dev/github.com/go-playground/validator/v10) provides struct validation that goes well for API.
 
+## Miscellaneous
+
+Fuzzing is a testing technique that provides random data as input to a program in an attempt to find vulnerabilities or crash-causing inputs.
+The fuzzing arguments can only be of type `string`, `[]byte`, `int`, `int8`, `int16`, `int32/rune`, `int64`, `uint`, `uint8/byte`, `uint16`, `uint32`, `uint64`, `float32`, `float64`, or `bool`.
+Fuzz targets should be fast and deterministic.
+Since the fuzz target is invoked in parallel across multiple workers and in nondeterministic order, the state of a fuzz target should not persist past the end of each call, and the behavior of a fuzz target should not depend on global state.
 
 ## Dependency Tracking
 
@@ -45,6 +51,9 @@ The command `go get golang.org/x/example/hello/reverse` downloads a dependency a
 If a dependency is listed in the `import` section of a `.go` file, it will be downloaded by running `go get .` automatically.
 
 The command `go test -v` executes tests with verbose output.
+
+The command `go test -fuzz=Fuzz` runs fuzz tests, where `Fuzz` matches the name of the fuzz test function.
+By default, all other tests in that package will run before fuzzing begins.
 
 The command `go build` compiles the packages, along with their dependencies, but doesn't install the results.
 The resulting file / executable can be run from the console.
