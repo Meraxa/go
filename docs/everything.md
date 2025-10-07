@@ -67,6 +67,26 @@ When declaring a `slice`, you omit its size in the brackets `[]string`.
 This tells Go that the size of the array underlying the slice can be dynamically changed.
 Iterating through a `slice` can be achieved by using the `for index, value := range values {...}` syntax.
 
+A generic function can be defined like below.
+The type for `K` is `comparable`, which allows any type that may be used as an operand of the comparison operators == and !=.
+Go requires that map keys are comparable.
+`K` could also have the type `string` for example.
+`Number` is an interface that defines which types are valid for the map values.
+
+```go
+type Number interface {
+    int64 | float64
+}
+
+func SumNumbers[K comparable, V Number](m map[K]V) V {
+    var s V
+    for _, v := range m {
+        s += v
+    }
+    return s
+}
+```
+
 ### Error Handling
 
 It is common to return an error as a value so the caller can check for it.
